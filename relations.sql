@@ -20,8 +20,9 @@ INSERT INTO refacademicas.keyword (keyword_id, word) VALUES
 -- Inserting data into the quote table:
 INSERT INTO refacademicas.quote (quote_id, origin_article_id, cited_article_id) VALUES
 (1, 1, 2),
-(2, 1, NULL),
-(3, 3, 2);
+(2, 1, 3),
+(3, 3, 2),
+(4, 3, 2);
 
 -- Inserting data into the collection table:
 INSERT INTO refacademicas.collection (collection_id, type) VALUES
