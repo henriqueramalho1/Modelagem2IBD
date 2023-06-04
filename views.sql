@@ -4,6 +4,7 @@ DROP VIEW IF EXISTS article_authors;
 DROP VIEW IF EXISTS number_of_article_quotes;
 DROP VIEW IF EXISTS number_of_author_quotes;
 DROP VIEW IF EXISTS keyword_uses;
+DROP VIEW IF EXISTS all_articles_quotes;
 
 CREATE VIEW article_keywords AS
     (SELECT 
@@ -69,3 +70,11 @@ CREATE VIEW keyword_uses AS
         keyword USING (keyword_id)
     GROUP BY keyword_id
     ORDER BY number_of_keyword_uses DESC);
+    
+CREATE VIEW all_articles_quotes AS
+    (SELECT 
+        article_id, title, origin_article_id AS quoted_by
+    FROM
+        article
+            LEFT JOIN
+        quote ON article_id = cited_article_id);
